@@ -5,7 +5,7 @@ let historicalData;
 let allIds = [];
 let historyLastUpdatedDate;
 let buyData = JSON.parse(fs.readFileSync("./data/data.json"));
-let skinIds = JSON.parse(fs.readFileSync("./data/skinIds.json"));
+let skinIds = JSON.parse(fs.readFileSync("./data/skinIds_temp.json"));
 const secret = JSON.parse(fs.readFileSync("../secret.json"));
 let listings = [];
 let names;
@@ -194,7 +194,7 @@ function doIdBatch(keys,start) {
                 currentSkinIdIndex+=20;
                 console.log(currentSkinIdIndex/keys.length*100,currentSkinIdIndex, keys.length);
                 skinIds.index = currentSkinIdIndex;
-                fs.writeFileSync("./data/skinIds.json", JSON.stringify(skinIds), 'utf-8');
+                fs.writeFileSync("./data/skinIds_temp.json", JSON.stringify(skinIds), 'utf-8');
             }
         });
     }
