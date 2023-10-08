@@ -49,7 +49,7 @@ function getListings(float,name, offset,cb) {
         },
     })
     .then(result => {
-        console.log(result.data);
+        //console.log(result.data);
         cb(result.data)
     })
     //.catch(error => console.error('Request failed', error.response.data, name.length));
@@ -192,7 +192,7 @@ function doIdBatch(keys,start) {
             finished++;
             if(finished >= 20 || finished+start >= keys.length-1) {
                 currentSkinIdIndex+=20;
-                console.log(currentSkinIdIndex/keys.length*100,currentSkinIdIndex, keys.length);
+                //console.log(currentSkinIdIndex/keys.length*100,currentSkinIdIndex, keys.length);
                 skinIds.index = currentSkinIdIndex;
                 fs.writeFileSync("./data/skinIds_temp.json", JSON.stringify(skinIds), 'utf-8');
             }
